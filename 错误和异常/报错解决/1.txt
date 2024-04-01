@@ -1,0 +1,19 @@
+python多线程下报错：AttributeError: 'module' object has no attribute '_strptime'
+
+一、问题
+
+python 在单线程下调用  time.strptime(str,format)
+
+可以正确执行，但是在多线程下会报 AttributeError: 'module' object has no attribute '_strptime' 这个错误
+
+二、解决
+
+在调用 time.strptime(str,format) 这个方法的python文件中引用 '_strptime'模块
+
+import _strptime
+
+编译器没有显式地调用这个模块，但是在多线程下执行strptime()方法会引用这个模块
+
+————————————————
+版权声明：本文为CSDN博主「日月星辰TEL」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq262593421/article/details/102829179
