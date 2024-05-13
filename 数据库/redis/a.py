@@ -17,4 +17,4 @@ cluster = rediscluster.StrictRedisCluster(startup_nodes=[{'host': 'redis', 'port
                                           password='')
 
 data = cluster.hgetall("20210907:6CA3FB4C-372F-5126-95AC-C94B2FE3E4AF:30105")
-print data
+print(data)
